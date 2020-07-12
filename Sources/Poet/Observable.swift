@@ -9,6 +9,7 @@ import Combine
 import Foundation
 import SwiftUI
 
+@available(OSX 10.15, *)
 @propertyWrapper
 class Observable<T>: ObservableObject {
 
@@ -27,26 +28,5 @@ class Observable<T>: ObservableObject {
     init(wrappedValue: T) {
         self.wrappedValue = wrappedValue
         self.observableObjectWrapper = ObservableObjectWrapper<T>(wrappedValue)
-    }
-}
-
-@propertyWrapper
-struct Observed<T>: DynamicProperty {
-    
-    @ObservedObject var observed: ObservableObjectWrapper<T>
-
-    public var wrappedValue: T {
-        get {
-            return observed.value
-        }
-        set {
-            observed.value = newValue
-        }
-    }
-}
-
-extension Observed: DeepCopying {
-    func deepCopy() -> Observed<T> {
-        return Observed(observed: self.observed.deepCopy())
     }
 }
