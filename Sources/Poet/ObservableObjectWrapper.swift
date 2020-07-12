@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-@available(OSX 10.15, *)
+@available(iOS 13.0, OSX 10.15, *)
 class ObservableObjectWrapper<T>: ObservableObject {
     let objectDidChange = ObservableObjectPublisher()
     
@@ -23,7 +23,7 @@ class ObservableObjectWrapper<T>: ObservableObject {
     }
 }
 
-@available(OSX 10.15, *)
+@available(iOS 13.0, OSX 10.15, *)
 extension ObservableObjectWrapper: DeepCopying {
     func deepCopy() -> Self {
         if let value = value as? DeepCopying, let copiedValue = value.deepCopy() as? T {
@@ -33,14 +33,14 @@ extension ObservableObjectWrapper: DeepCopying {
     }
 }
 
-@available(OSX 10.15, *)
+@available(iOS 13.0, OSX 10.15, *)
 extension ObservableObjectWrapper: Equatable where T: Equatable {
     static func == (lhs: ObservableObjectWrapper<T>, rhs: ObservableObjectWrapper<T>) -> Bool {
         return lhs.value == rhs.value
     }
 }
 
-@available(OSX 10.15, *)
+@available(iOS 13.0, OSX 10.15, *)
 extension ObservableObjectWrapper where T: ExpressibleByNilLiteral {
     convenience init() {
         self.init(nil)
