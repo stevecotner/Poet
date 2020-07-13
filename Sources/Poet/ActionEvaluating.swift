@@ -10,5 +10,5 @@ import Foundation
 public protocol ActionEvaluating {
     associatedtype Action: EvaluatorAction
     func evaluate(_ action: Action?)
-    func breadcrumb(_ action: Action)
+    func breadcrumb(_ action: Action?)
 }
