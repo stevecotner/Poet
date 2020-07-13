@@ -20,9 +20,13 @@ public struct ObservingTextView: View {
     }
     
     public var body: some View {
-        Text(text ?? "")
-            .kerning(kerning)
-            .multilineTextAlignment(alignment ?? .leading)
+        if let text = text {
+            Text(text)
+                .kerning(kerning)
+                .multilineTextAlignment(alignment ?? .leading)
+        } else {
+            EmptyView()
+        }
     }
 }
 
