@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct ObservingTextView: View {
+public struct ObservingTextView: View {
     
-    @Observed var text: String
-    var alignment: TextAlignment?
-    var kerning: CGFloat
+    @Observed public var text: String
+    public var alignment: TextAlignment?
+    public var kerning: CGFloat
     
-    init(_ text: Observed<String>, alignment: TextAlignment? = nil, kerning: CGFloat = 0) {
+    public init(_ text: Observed<String>, alignment: TextAlignment? = nil, kerning: CGFloat = 0) {
         self._text = text
         self.alignment = alignment
         self.kerning = kerning
     }
     
-    var body: some View {
+    public var body: some View {
         Text(text)
             .kerning(kerning)
             .multilineTextAlignment(alignment ?? .leading)
@@ -28,9 +28,9 @@ struct ObservingTextView: View {
 
 // MARK: Preview
 
-struct ObservingTextView_Previews: PreviewProvider {
-    @Observable static var helloText: String = "Hello"
-    static var previews: some View {
+public struct ObservingTextView_Previews: PreviewProvider {
+    @Observable public static var helloText: String = "Hello"
+    public static var previews: some View {
         ObservingTextView($helloText, alignment: .leading)
     }
 }
