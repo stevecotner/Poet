@@ -2,6 +2,6 @@ struct Poet {
     var text = "Hello, World!"
 }
 
-struct Example {
+public struct Example {
     var text = "Hello, World!"
 }
