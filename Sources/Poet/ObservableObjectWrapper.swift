@@ -8,7 +8,6 @@
 import Combine
 import Foundation
 
-@available(iOS 13.0, OSX 10.15, *)
 class ObservableObjectWrapper<T>: ObservableObject {
     let objectDidChange = ObservableObjectPublisher()
     

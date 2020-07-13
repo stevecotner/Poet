@@ -9,7 +9,6 @@ import Combine
 import Foundation
 import SwiftUI
 
-@available(iOS 13.0, OSX 10.15, *)
 @propertyWrapper
 struct Observed<T>: DynamicProperty {
     
@@ -25,7 +24,6 @@ struct Observed<T>: DynamicProperty {
     }
 }
 
-@available(iOS 13.0, OSX 10.15, *)
 extension Observed: DeepCopying {
     func deepCopy() -> Observed<T> {
         return Observed(observed: self.observed.deepCopy())
