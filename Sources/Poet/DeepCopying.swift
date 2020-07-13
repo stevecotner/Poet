@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DeepCopying {
+public protocol DeepCopying {
     func deepCopy() -> Self
 }

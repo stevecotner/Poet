@@ -8,23 +8,22 @@
 import Combine
 import Foundation
 
-class ObservableObjectWrapper<T>: ObservableObject {
-    let objectDidChange = ObservableObjectPublisher()
+public class ObservableObjectWrapper<T>: ObservableObject {
+    public let objectDidChange = ObservableObjectPublisher()
     
-    @Published var value: T {
+    @Published public var value: T {
         didSet {
             objectDidChange.send()
         }
     }
     
-    init(_ value: T) {
+    public init(_ value: T) {
         self.value = value
     }
 }
 
-@available(iOS 13.0, OSX 10.15, *)
 extension ObservableObjectWrapper: DeepCopying {
-    func deepCopy() -> Self {
+    public func deepCopy() -> Self {
         if let value = value as? DeepCopying, let copiedValue = value.deepCopy() as? T {
             return ObservableObjectWrapper(copiedValue) as! Self
         }
@@ -32,16 +31,14 @@ extension ObservableObjectWrapper: DeepCopying {
     }
 }
 
-@available(iOS 13.0, OSX 10.15, *)
 extension ObservableObjectWrapper: Equatable where T: Equatable {
-    static func == (lhs: ObservableObjectWrapper<T>, rhs: ObservableObjectWrapper<T>) -> Bool {
+    public static func == (lhs: ObservableObjectWrapper<T>, rhs: ObservableObjectWrapper<T>) -> Bool {
         return lhs.value == rhs.value
     }
 }
 
-@available(iOS 13.0, OSX 10.15, *)
 extension ObservableObjectWrapper where T: ExpressibleByNilLiteral {
-    convenience init() {
+    public convenience init() {
         self.init(nil)
     }
 }

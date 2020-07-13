@@ -10,21 +10,21 @@ import Foundation
 import SwiftUI
 
 @propertyWrapper
-class Observable<T>: ObservableObject {
+public class Observable<T>: ObservableObject {
 
-    @Published var observableObjectWrapper: ObservableObjectWrapper<T>
+    @Published public var observableObjectWrapper: ObservableObjectWrapper<T>
         
-    var wrappedValue: T {
+    public var wrappedValue: T {
         didSet {
             observableObjectWrapper.value = wrappedValue
         }
     }
     
-    var projectedValue: Observed<T> {
+    public var projectedValue: Observed<T> {
         Observed(observed: observableObjectWrapper)
     }
 
-    init(wrappedValue: T) {
+    public init(wrappedValue: T) {
         self.wrappedValue = wrappedValue
         self.observableObjectWrapper = ObservableObjectWrapper<T>(wrappedValue)
     }
