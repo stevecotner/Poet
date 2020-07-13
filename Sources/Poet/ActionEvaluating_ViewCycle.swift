@@ -10,7 +10,6 @@ import Foundation
 public protocol ActionEvaluating_ViewCycle: ActionEvaluating where Action: EvaluatorAction_ViewCycle {}
         
 public protocol EvaluatorAction_ViewCycle: EvaluatorAction {
-    static var viewDidLoad: Self { get }
-    static var viewWillAppear: Self { get }
-    static var viewDidAppear: Self { get }
+    static var onAppear: Self { get }
+    static var onDisappear: Self { get }
 }
