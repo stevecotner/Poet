@@ -15,11 +15,11 @@ public class StateHistory<S: EvaluatorState> {
     private var undoHistory: [S] = []
     private var redoHistory: [S] = []
     private var isProcessingUndoOrRedo: Bool = false
-    private var undoRedoHistorySink: AnyCancellable?
+    private var stateSink: AnyCancellable?
     
     public init(_ state: Passable<S>) {
         _state = state
-        undoRedoHistorySink = state.subject.sink { [weak self] value in
+        stateSink = state.subject.sink { [weak self] value in
             if let value = value {
                 self?.undoHistory.append(value)
                 if self?.isProcessingUndoOrRedo == false {
