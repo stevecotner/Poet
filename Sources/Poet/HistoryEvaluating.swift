@@ -36,9 +36,9 @@ extension HistoryEvaluating {
         if let currentState = history.wrappedValue?.popLast() {
             if let last = history.wrappedValue?.popLast() {
                 futureHistory.wrappedValue?.append(currentState)
-                self.isProcessingUndoOrRedo = true
+                isProcessingUndoOrRedo = true
                 state = last
-                self.isProcessingUndoOrRedo = false
+                isProcessingUndoOrRedo = false
             } else {
                 history.wrappedValue?.append(currentState)
             }
@@ -47,9 +47,9 @@ extension HistoryEvaluating {
     
     public func redo() {
         if let nextState = futureHistory.wrappedValue?.popLast() {
-            self.isProcessingUndoOrRedo = true
+            isProcessingUndoOrRedo = true
             state = nextState
-            self.isProcessingUndoOrRedo = false
+            isProcessingUndoOrRedo = false
         }
     }
 }
