@@ -22,6 +22,10 @@ public struct Observed<T>: DynamicProperty {
             observed.value = newValue
         }
     }
+    
+    public var projectedValue: Observed<T> {
+        return self
+    }
 }
 
 extension Observed: DeepCopying {
