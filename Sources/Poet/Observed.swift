@@ -16,10 +16,10 @@ public struct Observed<T>: DynamicProperty {
     
     public var wrappedValue: T {
         get {
-            return observable.value
+            return observable.wrappedValue
         }
         set {
-            observable.value = newValue
+            observable.wrappedValue = newValue
         }
     }
     

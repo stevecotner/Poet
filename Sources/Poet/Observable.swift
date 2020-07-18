@@ -12,7 +12,7 @@ import SwiftUI
 @propertyWrapper
 public class Observable<T>: ObservableObject {
 
-    @Published public var value: T
+    @Published private var value: T
         
     public var wrappedValue: T {
         didSet {
