@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol ActionEvaluating_ViewCycle: ActionEvaluating where Action: EvaluatorAction_ViewCycle {}
+public protocol Evaluating_ViewCycle: Evaluating where Action: EvaluatorAction_ViewCycle {}
         
 public protocol EvaluatorAction_ViewCycle: EvaluatorAction {
     static var onAppear: Self { get }
