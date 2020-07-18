@@ -19,7 +19,7 @@ public struct ObservingTextView: View {
         self.kerning = kerning
     }
     
-    public var body: some View {
+    @ViewBuilder public var body: some View {
         if let text = text {
             Text(text)
                 .kerning(kerning)

@@ -12,14 +12,14 @@ import SwiftUI
 @propertyWrapper
 public struct Observed<T>: DynamicProperty {
     
-    @ObservedObject public var observed: ObservableObjectWrapper<T>
+    @ObservedObject public var observable: Observable<T>
     
     public var wrappedValue: T {
         get {
-            return observed.value
+            return observable.value
         }
         set {
-            observed.value = newValue
+            observable.value = newValue
         }
     }
     
@@ -30,6 +30,6 @@ public struct Observed<T>: DynamicProperty {
 
 extension Observed: DeepCopying {
     public func deepCopy() -> Observed<T> {
-        return Observed(observed: self.observed.deepCopy())
+        return Observed(observable: _observable.wrappedValue.deepCopy())
     }
 }
