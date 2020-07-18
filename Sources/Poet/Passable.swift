@@ -26,9 +26,4 @@ public class Passable<S> {
     public init(wrappedValue: S?) {
         self.wrappedValue = wrappedValue
     }
-    
-    public init(_ passable: Passable<S>) {
-        self.subject = passable.subject
-        self.wrappedValue = passable.wrappedValue
-    }
 }
