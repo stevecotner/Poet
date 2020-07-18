@@ -43,3 +43,15 @@ extension Observable: DeepCopying {
         return Observable(wrappedValue: value) as! Self
     }
 }
+
+extension Observable: Equatable where T: Equatable {
+    public static func == (lhs: Observable<T>, rhs: Observable<T>) -> Bool {
+        return lhs.value == rhs.value
+    }
+}
+
+extension Observable where T: ExpressibleByNilLiteral {
+    public convenience init() {
+        self.init(nil)
+    }
+}
