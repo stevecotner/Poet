@@ -28,6 +28,11 @@ public class Observable<T>: ObservableObject {
         self.wrappedValue = wrappedValue
         self.value = wrappedValue
     }
+    
+    public init(_ wrappedValue: T) {
+        self.wrappedValue = wrappedValue
+        self.value = wrappedValue
+    }
 }
 
 extension Observable: DeepCopying {
