@@ -23,7 +23,7 @@ public class Passable<S> {
         return self
     }
 
-    public init(_ wrappedValue: S?) {
+    public init(wrappedValue: S?) {
         self.wrappedValue = wrappedValue
     }
     
