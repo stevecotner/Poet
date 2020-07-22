@@ -12,7 +12,7 @@ import SwiftUI
 @propertyWrapper
 public class Observable<T>: ObservableObject {
 
-    let objectDidChange = ObservableObjectPublisher()
+    public let objectDidChange = ObservableObjectPublisher()
     
     @Published private var value: T {
         didSet {
