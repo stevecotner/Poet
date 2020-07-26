@@ -51,4 +51,9 @@ public class StateHistory<S: EvaluatorState> {
             isProcessingUndoOrRedo = false
         }
     }
+    
+    public func clearUndoHistory() {
+        undoHistory.removeAll()
+        self.hasUndoHistory = false
+    }
 }
