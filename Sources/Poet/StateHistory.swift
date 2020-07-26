@@ -53,7 +53,11 @@ public class StateHistory<S: EvaluatorState> {
     }
     
     public func clearUndoHistory() {
-        undoHistory.removeAll()
+        if let currentState = undoHistory.popLast() {
+            undoHistory = [currentState]
+        } else {
+            undoHistory = []
+        }
         self.hasUndoHistory = false
     }
 }
